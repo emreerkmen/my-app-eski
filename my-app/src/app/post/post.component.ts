@@ -3,6 +3,9 @@ import { Post } from './post';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { ActivatedRoute } from '@angular/router';
+import { AlertifyService } from '../services/alertify.service';
+
+
 
 @Component({
   selector: 'app-post',
@@ -11,7 +14,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostComponent implements OnInit {
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private http: HttpClient,
+    private activatedRoute: ActivatedRoute,
+    private alertifyService: AlertifyService
+  ) { }
 
   path: string = "https://jsonplaceholder.typicode.com/";
   posts: Post[];
@@ -19,15 +26,16 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
-    this.activatedRoute.paramMap.subscribe(params=>{
-      console.log(params.get('userid'));
-      this.getPosts(params['userid']);
-    });  
+    this.activatedRoute.params.subscribe(params => {
+      console.log(params);
+      console.log(params["userid"]);
+      this.getPosts(params["userid"]);
+    });
   }
 
   getPosts(userid) {
     if (userid) {
-      this.http.get<Post[]>(this.path + "posts?userId="+userid).subscribe(response => {
+      this.http.get<Post[]>(this.path + "posts?userId=" + userid).subscribe(response => {
         this.posts = response;
       });
     } else {
@@ -44,5 +52,8 @@ export class PostComponent implements OnInit {
     })
   }
 
+  addToFavorites(post){
+    this.alertifyService.success("Adding succes"+post.title);
+  }
 
 }

@@ -15,6 +15,7 @@
         <strong class="d-block text-gray-dark">@{{post.title}}</strong>
         {{post.body}}
       </p>
+      <span (click)="addToFavorites(post)" class="badge badge-success">Favorite</span>
     </div>
     <small class="d-block text-right mt-3">
       <a href="#">All updates</a>
