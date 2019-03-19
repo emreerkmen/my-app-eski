@@ -27,4 +27,4 @@ export class CustomerComponent implements OnInit {
     this.selectedCustomer = customer;
   }
 
-}
+}/**/
