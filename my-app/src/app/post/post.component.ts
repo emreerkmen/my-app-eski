@@ -4,25 +4,30 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from '../services/alertify.service';
+import { PostService } from "./post.service";
 
 
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  styleUrls: ['./post.component.scss'],
+  providers: [PostService] //post service buraya eklediğimiz için bu component her çalıştığında bu service örneği belleğe atılıcak. Buna local service deniyor. 
 })
 export class PostComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
-    private alertifyService: AlertifyService
+    private alertifyService: AlertifyService,
+    private postService: PostService
   ) { }
 
   path: string = "https://jsonplaceholder.typicode.com/";
   posts: Post[];
   users: User[];
+  filterText: string;
+  today = new Date(2019, 2, 21);
 
   ngOnInit() {
     this.getUsers();
@@ -34,26 +39,19 @@ export class PostComponent implements OnInit {
   }
 
   getPosts(userid) {
-    if (userid) {
-      this.http.get<Post[]>(this.path + "posts?userId=" + userid).subscribe(response => {
-        this.posts = response;
-      });
-    } else {
-      this.http.get<Post[]>(this.path + "posts").subscribe(response => {
-        this.posts = response;
-      });
-    };
-
+    this.postService.getPosts(userid).subscribe(data => {
+      this.posts = data;
+    });
   }
 
   getUsers() {
-    this.http.get<User[]>(this.path + "users").subscribe(response => {
-      this.users = response;
+    this.postService.getUsers().subscribe(data => {
+      this.users = data;
     })
   }
 
-  addToFavorites(post){
-    this.alertifyService.success("Adding succes"+post.title);
+  addToFavorites(post) {
+    this.alertifyService.success("Adding succes" + post.title);
   }
 
 }
