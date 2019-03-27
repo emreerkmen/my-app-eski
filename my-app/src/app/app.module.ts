@@ -10,6 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { PostComponent } from './post/post.component';
 import { AlertifyService } from './services/alertify.service';
 import { PostFilterPipe } from './post/post-filter.pipe';
+import { CityComponent } from './city/city.component';
 
 
 
@@ -19,7 +20,8 @@ import { PostFilterPipe } from './post/post-filter.pipe';
     CustomerComponent,
     NavComponent,
     PostComponent,
-    PostFilterPipe
+    PostFilterPipe,
+    CityComponent
   ],
   imports: [
     BrowserModule,
