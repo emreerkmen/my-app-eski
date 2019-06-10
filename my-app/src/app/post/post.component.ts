@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from './post';
-import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from '../services/alertify.service';
@@ -17,7 +16,6 @@ import { PostService } from "./post.service";
 export class PostComponent implements OnInit {
 
   constructor(
-    private http: HttpClient,
     private activatedRoute: ActivatedRoute,
     private alertifyService: AlertifyService,
     private postService: PostService
