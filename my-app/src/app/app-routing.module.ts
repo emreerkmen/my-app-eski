@@ -6,7 +6,8 @@ import { CityComponent } from './city/city.component';
 
 const routes: Routes = [
   {path:"posts", component:PostComponent},
-  {path:"", redirectTo:"posts",pathMatch:"full"},
+  //{path:"my-app", redirectTo:"posts",pathMatch:"full"},
+  {path:"my-app", component:PostComponent},
   {path:"customers", component:CustomerComponent},
   {path:"posts/:userid", component:PostComponent},
   {path:"city", component:CityComponent},
