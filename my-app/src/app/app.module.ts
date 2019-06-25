@@ -11,6 +11,7 @@ import { PostComponent } from './post/post.component';
 import { AlertifyService } from './services/alertify.service';
 import { PostFilterPipe } from './post/post-filter.pipe';
 import { CityComponent } from './city/city.component';
+import { ResumeComponent } from './resume/resume.component';
 
 
 
@@ -21,7 +22,8 @@ import { CityComponent } from './city/city.component';
     NavComponent,
     PostComponent,
     PostFilterPipe,
-    CityComponent
+    CityComponent,
+    ResumeComponent
   ],
   imports: [
     BrowserModule,
