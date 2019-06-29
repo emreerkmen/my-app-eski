@@ -1,25 +1,27 @@
-.container {
-    background-color: #3d8d97;
+.blog {
+    background-color: #ffffff;
     border-radius: 0.25rem;
 }
 
-.one{
+.top-info{
     background-color: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 5px;
+    //border-radius: 0px 0px 20px 20px;
     height: 100px;
 }
 
-.two{
-    background-color: #dddada;
-    border: 2px solid #000000;
-    border-radius: 5px;
-    height: 100px;
-}
+img {
+    border: 1px solid #000000;
+    border-radius: 0px 0px 20px 20px;
+    padding: 5px;
+    background-color: #ddd;
+  }
+  
+  img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
 
-.tree{
-    background-color: #b1b1b1;
-    border: 2px solid #000000;
-    border-radius: 5px;
-    height: 100px;
-}
+  .img{
+      padding: 0% !important;
+  }
+
+  
