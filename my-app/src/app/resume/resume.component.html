@@ -3,9 +3,10 @@
   <div class="row">
     <div class="col top-info text-center ">
       <div class="shadow p-3 mb-5 bg-white rounded">
-        <h5>1. Başlık <span class="badge badge-secondary">New</span></h5>
-        <h5>2. Başlık <span class="badge badge-secondary">New</span></h5>
-        <h5>3. Başlık <span class="badge badge-secondary">New</span></h5>
+        <h5><span class="badge badge-secondary" style="float:left"><i
+              class="fa fa-envelope"></i></span>emre.erkmen@hotmail.com</h5>
+        <h5><span class="badge badge-secondary" style="float:left"><i class="fa fa-phone"></i></span>0534 392 0715</h5>
+        <h5><span class="badge badge-secondary" style="float:left"><i class="fa fa-calendar"></i></span>25/04/1994</h5>
       </div>
     </div>
     <div class="col-2 text-center top-info img">
@@ -13,50 +14,63 @@
     </div>
     <div class="col top-info text-center ">
       <div class="shadow p-3 mb-5 bg-white rounded">
-        <h5>1. Başlık <span class="badge badge-secondary">New</span></h5>
-        <h5>2. Başlık <span class="badge badge-secondary">New</span></h5>
-        <h5>3. Başlık <span class="badge badge-secondary">New</span></h5>
+        <h5>emre.erkmen2<span class="badge badge-secondary" style="float:right"><i class="fa fa-skype"></i></span></h5>
+        <h5>github.com/emreerkmen<span class="badge badge-secondary" style="float:right"><i
+              class="fa fa-github-square"></i></span></h5>
+        <h5>İstanbul<span class="badge badge-secondary" style="float:right"><i class="fa fa-map-marker"></i></span></h5>
       </div>
     </div>
   </div>
 </div>
 
+
+<!-- buraya ngFor elementi ekeleyebilrisin. Hardcoded tek tek yazmaya gerek yok şu hali ile çok karışık -->
 <div class="container blog shadow">
   <div class="row">
     <div class="col mt-5 one">
       <div class="card mb-3">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <a class="card-title" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <h5 class="card-title">{{summaryTitle2}}</h5>
+          </a>
+          <p class="card-text">{{summaryDefinition2}}</p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              NN Hayat ve Emeklilik Veri Entegrasyonu | PL/SQL NN Hayat ve Emeklilik ile ING Bank arasında veri entegrasyonu projesinde backend yazılımcı olarak görev alıyorum. NN Hayat ve Emeklilik verileri anlık olarak kayıt edilip daha sonra asenkron bir yapı ile kontrolü sağlanıp ING Bank sistemi ile entegrasyonu sağlanmaktadır. Bu projede geçmiş verilerin SFTP ile aktarılmasında, sistemin geliştirilmesinde ve iyileştirilmesinde görev aldım.
+            </div>
+          </div>
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-      <div class="col mt-1 one">
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
+    <div class="col mt-1 one">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{summaryTitle1}}</h5>
+          <p class="card-text">{{summaryDefinition1}}</p>
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
         </div>
+      </div>
+    </div>
   </div>
   <div class="row">
-      <div class="col mt-1 one">
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
+    <div class="col mt-1 one">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{summaryTitle0}}</h5>
+          <p class="card-text">{{summaryDefinition0}}</p>
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
         </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-11"></div>
+    <div class="col-1"><button type="button" class="btn btn-primary" (click)="changeLanguage()">{{language}}</button></div>
+  </div>
+</div>
