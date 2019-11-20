@@ -26,42 +26,24 @@
 
 <!-- buraya ngFor elementi ekeleyebilrisin. Hardcoded tek tek yazmaya gerek yok şu hali ile çok karışık -->
 <div class="container blog shadow">
+
   <div class="row">
-    <div class="col mt-5 one">
-      <div class="card mb-3">
-        <div class="card-body">
-          <a class="card-title" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <h5 class="card-title">{{summaryTitle2}}</h5>
-          </a>
-          <p class="card-text">{{summaryDefinition2}}</p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              <p>{{summaryDefinitionCollapse2}}</p>
+    <div *ngFor="let resume of resumes;index as i">
+      <div class="col mt-5 one">
+        <div class="card mb-3">
+          <div class="card-body">
+            <a class="card-title" data-toggle="collapse" href="#collapseExample{{i}}" role="button"
+              aria-expanded="false" aria-controls="collapseExample">
+              <h5 class="card-title">{{resume.summaryTitle}}</h5>
+            </a>
+            <p class="card-text">{{resume.summaryDefination}}</p>
+            <div class="collapse" id="collapseExample{{i}}">
+              <div class="card card-body">
+                <p>{{resume.collapseDefination}}</p>
+              </div>
             </div>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
           </div>
-          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col mt-1 one">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">{{summaryTitle1}}</h5>
-          <p class="card-text">{{summaryDefinition1}}</p>
-          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col mt-1 one">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">{{summaryTitle0}}</h5>
-          <p class="card-text">{{summaryDefinition0}}</p>
-          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
         </div>
       </div>
     </div>
@@ -71,6 +53,7 @@
 <div class="container">
   <div class="row">
     <div class="col-11"></div>
-    <div class="col-1"><button type="button" class="btn btn-primary" (click)="changeLanguage()">{{language}}</button></div>
+    <div class="col-1"><button type="button" class="btn btn-primary" (click)="changeLanguage()">{{language}}</button>
+    </div>
   </div>
 </div>
