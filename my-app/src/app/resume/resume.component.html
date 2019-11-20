@@ -28,8 +28,8 @@
 <div class="container blog shadow">
 
   <div class="row">
-    <div *ngFor="let resume of resumes;index as i">
-      <div class="col mt-5 one">
+    <div class="col mt-5 one">
+      <div *ngFor="let resume of resumes;index as i">
         <div class="card mb-3">
           <div class="card-body">
             <a class="card-title" data-toggle="collapse" href="#collapseExample{{i}}" role="button"
