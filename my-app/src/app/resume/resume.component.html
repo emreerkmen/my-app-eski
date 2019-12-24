@@ -24,7 +24,7 @@
 </div>
 
 
-<div class="container blog shadow">
+<!-- <div class="container blog shadow">
 
   <div class="row">
     <div class="col mt-5 one">
@@ -39,6 +39,31 @@
             <div class="collapse" id="collapseExample{{i}}">
               <div class="card card-body">
                 <p>{{resume.collapseDefination}}</p>
+              </div>
+            </div>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          <!--</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<div class="container blog shadow">
+
+  <div class="row">
+    <div class="col mt-5 one">
+      <div *ngFor="let title of titles;index as i">
+        <div class="card mb-3">
+          <div class="card-body">
+            <a class="card-title" data-toggle="collapse" href="#collapseExample{{i}}" role="button"
+              aria-expanded="false" aria-controls="collapseExample">
+              <h5 class="card-title">{{title.title}} | {{companies[i].companyName}} ({{title.startDate|date}}-{{title.endDate|date}})</h5>
+            </a>
+            <p class="card-text"><!--{{resume.summaryDefination}}--></p>
+            <div class="collapse" id="collapseExample{{i}}">
+              <div class="card card-body">
+                <p>{{descs[i].description}}</p>
               </div>
             </div>
             <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->

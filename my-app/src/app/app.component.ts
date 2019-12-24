@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string = 'First Angular App';
   city: string = "Ankara";
+  
 }
