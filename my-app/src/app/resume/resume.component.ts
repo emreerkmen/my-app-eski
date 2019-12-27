@@ -69,16 +69,31 @@ export class ResumeComponent implements OnInit {
   }
 
   titles: Title[];
+  title: Title;
   companies: Company[];
   descs: Desc[];
 
+  titleObserver =  {
+    //bir de observer tanımlıyoruz. Aslında gözlemci ve gözlemcinin ne yapacağı tanımlanıyor
+    next: (data) => (this.titles=data),
+    error: (err: string) => console.error("Observer got an error: " + err),
+    complete: () => console.log("Title fetch tamamlandı.")
+  };
+
   getTitle(titleId) {
-    this.resumeService.getTitles$(titleId).subscribe(data => {
-      (this.titles = data),
-        err => {
-          console.log(err);
-        };
-    });
+    this.resumeService.getTitles$(titleId).subscribe(this.titleObserver);
+  }
+
+  updateTitle(title: Title) {
+    this.resumeService.updateTitle$(title).subscribe(this.titleObserver);
+  }
+
+  createTitle(title:Title) {
+    this.resumeService.createTitle$(title).subscribe(this.titleObserver);
+  }
+
+  deleteTitle(title:Title) {
+    this.resumeService.deleteTitle$(title).subscribe(this.titleObserver);
   }
 
   getCompanies(companyId) {
@@ -102,7 +117,7 @@ export class ResumeComponent implements OnInit {
   setAll() {
     console.log("setAll() başladı");
     this.getTitle(null);
-    this.getCompanies(null);
+    //this.getCompanies(null);
     this.getDesc(null);
   }
 

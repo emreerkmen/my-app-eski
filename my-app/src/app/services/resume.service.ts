@@ -5,6 +5,11 @@ import { Company } from "../model/company";
 import { Desc } from "../model/decs";
 import { Observable, throwError, of } from "rxjs"; //TODOObservable lar tam olarak anlaşılacak.
 import { retry, catchError, tap, map } from "rxjs/operators";
+import { environment } from "../../environments/environment";
+
+// Note that the RxJS library is huge. Instead of importing the entire RxJS library using import * as
+// Rx from 'rxjs/Rx', it’s recommended to only import the pieces you require. This will substantially
+// reduce the size of your resulting code bundle to a minimum.
 
 @Injectable({
   providedIn: "root"
@@ -24,7 +29,7 @@ export class ResumeService {
 
   constructor(private http: HttpClient) {}
 
-  apiUrl: string = "https://localhost:44306/api/";
+  apiUrl: string = environment.appUrl; //environment default olarak dev modunda çalışır."ng serve --environment prod" ile environment.prod  çalışır
   titles: Title[];
   companies: Company[];
   descs: Desc[];
@@ -35,10 +40,8 @@ export class ResumeService {
         .get<Title[]>(this.apiUrl + "titles/" + titleId) //TODO "posts?userId="  gibi bir soru işareti kullanılmış sorgulama için. Dotnet core api'ı bu hale getirebilrsin. avantajlarına bak
         .pipe(
           retry(1),
-          tap(title =>
-            console.log("A title fetched:")
-          ) /*,
-          catchError(this.errorHandler)*/
+          tap(title => console.log("A title fetched:")),
+          catchError(this.errorHandler)
         );
     } else {
       return this.http.get<Title[]>(this.apiUrl + "titles").pipe(
@@ -49,15 +52,54 @@ export class ResumeService {
     }
   }
 
-  saveTitles(title): Observable<Title> {
-    return this.http
-      .post<Title>(
-        this.apiUrl + "titles/",
-        JSON.stringify(title),
-        this.httpOptions
-      )
-      .pipe(retry(1), catchError(this.errorHandler));
+  createTitle$(title): Observable<Title> {
+    if (title) {
+      return this.http
+        .post<Title>(
+          this.apiUrl + "titles",
+          JSON.stringify(title),
+          this.httpOptions
+        )
+        .pipe(
+          retry(1),
+          tap(title => console.log(title.title + " isimli title kaydedildi.")),
+          catchError(this.errorHandler)
+        );
+    }
   }
+
+  updateTitle$(title): Observable<Title> {
+    if (title) {
+      return this.http.put<Title>(this.apiUrl + "titles/", title).pipe(
+        retry(1),
+        tap(title => console.log(title.title + " isimli title güncellendi.")),
+        catchError(this.errorHandler)
+      );
+    }
+  }
+
+  deleteTitle$(title): Observable<Title> {
+    if (title) {
+      return this.http
+        .delete<Title>(this.apiUrl + "titles/" + title.titleId)
+        .pipe(
+          retry(1),
+          tap(title => console.log(title.title + " isimli title silindi.")),
+          catchError(this.errorHandler)
+        );
+    }
+  }
+
+  //Güzel bir örnek--https://www.sitepoint.com/angular-rxjs-create-api-service-rest-backend/
+  /*public getAllTodos(): Observable<Todo[]> {
+  return this.http
+    .get(API_URL + '/todos')
+    .map(response => {
+      const todos = response.json();
+      return todos.map((todo) => new Todo(todo));
+    })
+    .catch(this.handleError);
+    }*/
 
   getCompanies$(companyId): Observable<Company[]> {
     if (companyId) {
@@ -81,12 +123,14 @@ export class ResumeService {
         .get<Desc[]>(this.apiUrl + "descs/" + descId) //TODO "posts?userId="  gibi bir soru işareti kullanılmış sorgulama için. Dotnet core api'ı bu hale getirebilrsin. avantajlarına bak
         .pipe(
           retry(1),
-          tap(c => console.log("A Description fetched:"))
+          tap(c => console.log("A Description fetched:")),
+          catchError(this.errorHandler)
         );
     } else {
       return this.http.get<Desc[]>(this.apiUrl + "descs").pipe(
         retry(1),
-        tap(c => console.log("Descriptions fetched."))
+        tap(c => console.log("Descriptions fetched.")),
+        catchError(this.errorHandler)
       );
     }
   }
