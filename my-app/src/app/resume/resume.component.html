@@ -3,26 +3,37 @@
   <div class="row">
     <div class="col top-info text-center ">
       <div class="shadow p-3 mb-5 bg-white rounded">
-        <h5><span class="badge badge-secondary" style="float:left"><i
-              class="fa fa-envelope"></i></span>emre.erkmen@hotmail.com</h5>
-        <h5><span class="badge badge-secondary" style="float:left"><i class="fa fa-phone"></i></span>0534 392 0715</h5>
-        <h5><span class="badge badge-secondary" style="float:left"><i class="fa fa-calendar"></i></span>25/04/1994</h5>
+        <h5>
+          <span class="badge badge-secondary" style="float:left"><i
+              class="fa fa-envelope"></i></span>emre.erkmen@hotmail.com
+        </h5>
+        <h5>
+          <span class="badge badge-secondary" style="float:left"><i class="fa fa-phone"></i></span>0534 392 0715
+        </h5>
+        <h5>
+          <span class="badge badge-secondary" style="float:left"><i class="fa fa-calendar"></i></span>25/04/1994
+        </h5>
       </div>
     </div>
     <div class="col-2 text-center top-info img">
-      <img class="img-fluid" src="assets/img/profil_pic.jpg" width="100" height="180" alt="">
+      <img class="img-fluid" src="assets/img/profil_pic.jpg" width="100" height="180" alt="" />
     </div>
     <div class="col top-info text-center ">
       <div class="shadow p-3 mb-5 bg-white rounded">
-        <h5>emre.erkmen2<span class="badge badge-secondary" style="float:right"><i class="fa fa-skype"></i></span></h5>
-        <h5>github.com/emreerkmen<span class="badge badge-secondary" style="float:right"><i
-              class="fa fa-github-square"></i></span></h5>
-        <h5>İstanbul<span class="badge badge-secondary" style="float:right"><i class="fa fa-map-marker"></i></span></h5>
+        <h5>
+          emre.erkmen2<span class="badge badge-secondary" style="float:right"><i class="fa fa-skype"></i></span>
+        </h5>
+        <h5>
+          github.com/emreerkmen<span class="badge badge-secondary" style="float:right"><i
+              class="fa fa-github-square"></i></span>
+        </h5>
+        <h5>
+          İstanbul<span class="badge badge-secondary" style="float:right"><i class="fa fa-map-marker"></i></span>
+        </h5>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- <div class="container blog shadow">
 
@@ -50,25 +61,25 @@
 </div>-->
 
 <div class="container blog shadow">
-
   <div class="row">
     <div class="col mt-5 one">
-      <div *ngFor="let title of titles;index as i">
+      <div *ngFor="let resumeDetail of resumeDetails; index as i">
         <div class="card mb-3">
           <div class="card-body">
-            <a class="card-title" data-toggle="collapse" href="#collapseExample{{i}}" role="button"
+            <a class="card-title" data-toggle="collapse" href="#collapseExample{{ i }}" role="button"
               aria-expanded="false" aria-controls="collapseExample">
-              <h5 class="card-title">{{title.title}}
-                <!--| {{companies[i].companyName}} -->({{title.startDate|date}}-{{title.endDate|date}})</h5>
-                <button type="button" class="btn btn-primary" (click)="changeLanguage()">Update</button>
-                <button type="button" class="btn btn-warning" (click)="deleteTitle(title)">Delete</button>
+              <h5 class="card-title">
+                {{ resumeDetail.title }} | {{ resumeDetail.companyName }} ({{
+                  resumeDetail.startDate | date
+                }})-({{ resumeDetail.endDate | date }})
+              </h5>
             </a>
             <p class="card-text">
               <!--{{resume.summaryDefination}}-->
             </p>
-            <div class="collapse" id="collapseExample{{i}}">
+            <div class="collapse" id="collapseExample{{ i }}">
               <div class="card card-body">
-                <!-- <p>{{descs[i].description}}</p> -->
+                <p>{{ resumeDetail.description }}</p>
               </div>
             </div>
             <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
@@ -82,7 +93,35 @@
 <div class="container">
   <div class="row">
     <div class="col-11"></div>
-    <div class="col-1"><button type="button" class="btn btn-primary" (click)="changeLanguage()">{{language}}</button>
+    <div class="col-1">
+      <button type="button" class="btn btn-primary" (click)="changeLanguage()">
+        {{ language }}
+      </button>
     </div>
   </div>
 </div>
+
+<!--<div class="container-title-main">
+  <div class="div-topwave">
+    <svg class="topwave"  viewBox="0 0 294 73">
+      <path id="topwave"  opacity="0.15"
+        d="M0.495151 0L0.382996 35.0629C0.382996 35.0629 58.1024 103.623 117.141 35.0629C176.179 -33.4976 293.265 72.5 293.265 72.5L293.497 0H0.495151Z" />
+    </svg>
+  </div>
+
+  <h6 class="title">TITLE</h6>
+  <div class="div-bottomwaves">
+
+    <svg class="front-bottom-waves" viewBox="0 -40 293 460">
+
+      <path class="back" id="back" transform="translate(0,-40)" 
+        d="M0 0C0 0 27.1706 65.5507 57.2342 108.942C76.3561 120.611 99.6285 126.038 126.058 115.285C160.331 14.4708 293 40.6254 293 40.6254V517H0V0Z" />
+      <path class="front" id="front" d="M0 0C0 0 59 122 146.5 61C234 0 293 0 293 0V474H0V0Z" />
+    </svg>
+    <svg viewBox="0 600 293 517">
+
+    </svg>
+  </div>
+</div>-->
+
+<!---->

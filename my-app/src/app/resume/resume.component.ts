@@ -3,6 +3,7 @@ import { Resume } from "./resume";
 import { Title } from "../model/title";
 import { Company } from "../model/company";
 import { Desc } from "../model/decs";
+import { ResumeDetail } from "../model/resumeDetail";
 import { ResumeService } from "../services/resume.service";
 import { ActivatedRoute } from "@angular/router"; //TODO Bu ne için kullanılıyorud?
 import { timer, of, Observable } from "rxjs";
@@ -72,6 +73,7 @@ export class ResumeComponent implements OnInit {
   title: Title;
   companies: Company[];
   descs: Desc[];
+  resumeDetails: ResumeDetail[];
 
   titleObserver =  {
     //bir de observer tanımlıyoruz. Aslında gözlemci ve gözlemcinin ne yapacağı tanımlanıyor
@@ -114,11 +116,21 @@ export class ResumeComponent implements OnInit {
     });
   }
 
+  getresumeDetail(){
+    this.resumeService.getResumeDetail$().subscribe(data => {
+      (this.resumeDetails = data),
+        err => {
+          console.log(err);
+        }
+    })
+  }
+
   setAll() {
     console.log("setAll() başladı");
     this.getTitle(null);
-    //this.getCompanies(null);
+    this.getCompanies(null);
     this.getDesc(null);
+    this.getresumeDetail();
   }
 
   //titleOne: string = this.titles[1].title;

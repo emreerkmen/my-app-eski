@@ -1,37 +1,87 @@
 $variable: 1;
 
 .blog {
-    background-color: #ffffff;
-    border-radius: 0.25rem;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
 }
 
 .top-info {
-    background-color: #ffffff;
-    //border-radius: 0px 0px 20px 20px;
-    height: 100px;
+  background-color: #ffffff;
+  //border-radius: 0px 0px 20px 20px;
+  height: 100px;
 }
 
 img {
-    border: 1px solid #000000;
-    border-radius: 0px 0px 20px 20px;
-    padding: 5px;
-    background-color: #ddd;
+  border: 1px solid #000000;
+  border-radius: 0px 0px 20px 20px;
+  padding: 5px;
+  background-color: #ddd;
 }
-  
+
 img:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
-.img{
+.img {
   padding: 0% !important;
 }
 
-.summary{
-  color : black;
-  
+.summary {
+  color: black;
 }
 
-a.card-title  {
-  color: #444
+a.card-title {
+  color: #444;
 }
-  
+
+.container-title-main {
+  position: relative;
+  width: 294.5px;
+  height: 601px;
+  left: 100px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.title {
+  position: relative;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 57px;
+  line-height: 67px;
+  margin: 0 0 0 0;
+
+  /* Blue 2 */
+  color: #2d9cdb;
+}
+
+#front {
+  fill: #2d9cdb;
+}
+
+#back {
+  fill: #56ccf2;
+  visibility: collapse;
+}
+
+.front-bottom-waves:hover  .back {
+  animation: createshadow 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes createshadow {
+  from {
+    fill: #ffffff;
+  }
+  to {
+    fill: #56ccf2;
+    visibility: visible;
+  }
+}
+
+#topwave {
+  fill: #56CCF2;
+  transform: translate(10,10);
+}

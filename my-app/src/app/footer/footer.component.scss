@@ -1,0 +1,67 @@
+.app-footer {
+  position: relative;
+  background-color: #DCA98A;
+  //border: 2px solid #000000;
+  bottom: 0px;
+  top: 419px;
+  right: 0;
+  left: 0;
+  height: 100px;
+}
+
+.div-footer {
+  position: absolute;
+  background-color: #70ACB1;
+  //border: 2px solid #000000;
+  top: 0px;
+  height: 100px;
+  transition:1s cubic-bezier(0.25, 0, 0, 1);
+  width: 100%;
+}
+
+.app-footer:hover .div-footer{
+  height: 10px;
+}
+
+.icons{
+  position: relative;
+  margin: auto;
+  border: 3px solid blue;
+  width: 266px;
+}
+
+.angular-icon {
+  position: relative;
+  display: block;
+  margin: 0px 0px 0px 0px;
+  border: 1px solid red;
+  height: 90px;
+  width:  70px;
+  float: left;
+}
+
+.mid {
+  margin: 0px 25px 0px 25px;
+}
+
+
+
+// .app-footer:hover .div-footer{
+//   animation: open-footer-svg 1s;
+//   animation-timing-function: ease-out;
+//   animation-fill-mode: both;
+//   animation-direction: alternate;
+//   //transition:1s cubic-bezier(0.25, 0, 0, 1);
+//   transition: height 1s;
+// }
+
+// @keyframes open-footer-svg{
+//     from{
+
+//       height: 100px;
+//     }
+//     to{
+
+//       height: 10px;
+//     }
+// }

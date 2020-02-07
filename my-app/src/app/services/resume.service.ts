@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Title } from "../model/title";
 import { Company } from "../model/company";
 import { Desc } from "../model/decs";
-import { Observable, throwError, of } from "rxjs"; //TODOObservable lar tam olarak anlaşılacak.
+import { ResumeDetail } from "../model/resumeDetail";
+import { Observable, throwError, of } from "rxjs"; //TODOObservable lar tam olarak anlaşılacak. Biraz anlaşıldı gibi, böyle devam Emre.
 import { retry, catchError, tap, map } from "rxjs/operators";
 import { environment } from "../../environments/environment";
 
@@ -134,6 +135,15 @@ export class ResumeService {
       );
     }
   }
+
+  getResumeDetail$(): Observable<ResumeDetail[]> {
+    return this.http.get<ResumeDetail[]>(this.apiUrl + "resumes/getdetail").pipe(
+      retry(1),
+      tap(c => console.log("Resume detail fetched.")),
+      catchError(this.errorHandler)
+    );
+  }
+
 
   errorHandler(error) {
     let errorMessage = "";
