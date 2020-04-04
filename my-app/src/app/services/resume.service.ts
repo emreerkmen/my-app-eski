@@ -138,6 +138,15 @@ export class ResumeService {
 
   getResumeDetail$(): Observable<ResumeDetail[]> {
     return this.http.get<ResumeDetail[]>(this.apiUrl + "resumes/getdetail").pipe(
+      map(  result => result.sort((obj1,obj2) => {//Gelen verileri start date'e göre sıraladık.
+          if(obj1.startDate<obj2.startDate){
+            return 1;
+          }
+          if(obj1.startDate>obj2.startDate){
+            return -1
+          }
+          return 0;
+        })),
       retry(1),
       tap(c => console.log("Resume detail fetched.")),
       catchError(this.errorHandler)

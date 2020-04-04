@@ -68,7 +68,7 @@ export class ResumeComponent implements OnInit {
     // })
     //this.changeLanguage();
   }
-
+  //deneme
   titles: Title[];
   title: Title;
   companies: Company[];
@@ -131,6 +131,15 @@ export class ResumeComponent implements OnInit {
     this.getCompanies(null);
     this.getDesc(null);
     this.getresumeDetail();
+    // this.resumeDetails = this.resumeDetails.sort((obj1,obj2) => {
+    //   if(obj1.startDate>obj2.startDate){
+    //     return 1;
+    //   }
+    //   if(obj1.startDate<obj2.startDate){
+    //     return -1
+    //   }
+    //   return 0;
+    // });
   }
 
   //titleOne: string = this.titles[1].title;

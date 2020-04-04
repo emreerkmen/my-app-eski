@@ -68,16 +68,21 @@
           <div class="card-body">
             <a class="card-title" data-toggle="collapse" href="#collapseExample{{ i }}" role="button"
               aria-expanded="false" aria-controls="collapseExample">
-              <h5 class="card-title">
-                {{ resumeDetail.title }} | {{ resumeDetail.companyName }} ({{
-                  resumeDetail.startDate | date
-                }})-({{ resumeDetail.endDate | date }})
-              </h5>
+              <div>
+                <h5 class="card-title">
+                  {{ resumeDetail.title }} | {{ resumeDetail.companyName }}
+                    <h5 class="card-date" style="float: right">
+                      ({{ resumeDetail.startDate | date }})-({{
+                  resumeDetail.endDate | date
+                }})
+                    </h5>
+                </h5>
+              </div>
             </a>
             <p class="card-text">
               <!--{{resume.summaryDefination}}-->
             </p>
-            <div class="collapse" id="collapseExample{{ i }}">
+            <div class="collapse show" id="collapseExample{{ i }}">
               <div class="card card-body">
                 <p>{{ resumeDetail.description }}</p>
               </div>
@@ -90,7 +95,7 @@
   </div>
 </div>
 
-<div class="container">
+<!--<div class="container">
   <div class="row">
     <div class="col-11"></div>
     <div class="col-1">
@@ -99,7 +104,7 @@
       </button>
     </div>
   </div>
-</div>
+</div>-->
 
 <!--<div class="container-title-main">
   <div class="div-topwave">
